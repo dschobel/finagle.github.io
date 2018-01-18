@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Farewell, maven.twttr.com!</title>
+    <title>Guava-less</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -97,10 +97,10 @@
   <div class="meta">
     <!---->
     <div class="author-contact">
-      <h4 class="author-name">Bryce Anderson</h4>
-      <p class="author-twitter"><a href="https://twitter.com/banderson">@banderson</a></p>
+      <h4 class="author-name">Kevin Oliver</h4>
+      <p class="author-twitter"><a href="https://twitter.com/kevino">@kevino</a></p>
     </div>
-    <p><em>Posted November 29, 2016</em></p>
+    <p><em>Posted December 12, 2017</em></p>
   </div>
   
   <div class="share">
@@ -111,35 +111,32 @@
 </div>
 
 <div class="post col-md-9">
-  <h1>Farewell, maven.twttr.com!</h1>
+  <h1>Guava-less</h1>
   
-  <p>Historically Finagle has depended on a forked org.apache.thrift libthrift
-version 0.5.x, which happens to not be published to the Central
-Repository. We have published the artifact to maven.twttr.com,
-but this requires users to add the maven.twttr.com repository as a
-resolver for their project. This is normally not a serious problem for
-most users, but historically maven.twttr.com has had a propensity to
-be unreliable and inaccessible from certain locations. Our longterm
-goal is to transition to a current version of Apache libthrift which is
-hosted by the Central Repository, but there is a significant amount of
-work we need to do internally before we can get there.</p>
+  <p>We have been minimizing our dependency on <a href="https://github.com/google/guava">Guava</a>, which is big
+and often causes version conflicts for our users. This work will be
+released as part of January&rsquo;s 18.1 release, though there are 2 places
+it remains:</p>
 
-<p>However, we have good news: now maven.twttr.com is no longer required! We
-have published a fork of libthrift v0.5.0 to the central repository
-under the &lsquo;com.twitter&rsquo; organization. The class files still reside in
-the &lsquo;org.apache&rsquo; namespace, so users can still upgrade to newer version
-of libthrift as they wish, but doing so will now require manual exclusion
-rules because the eviction mechanisms used by sbt rely on matching
-organization names:</p>
-<pre class="highlight scala"><code><span class="c1">// snippet from build.sbt script
-</span><span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
-  <span class="s">"com.twitter"</span> <span class="o">%%</span> <span class="s">"finagle-thrift"</span> <span class="o">%</span> <span class="s">"6.40.0"</span> <span class="n">exclude</span><span class="o">(</span><span class="s">"com.twitter"</span><span class="o">,</span> <span class="s">"libthrift"</span><span class="o">),</span>
-  <span class="s">"org.apache.thrift"</span> <span class="o">%</span> <span class="s">"libthrift"</span> <span class="o">%</span> <span class="s">"0.9.3"</span>
-<span class="o">)</span>
-</code></pre>
+<ul>
+<li><p><code>util-cache-guava</code> has a <code>CacheBuilder</code>-based implementation of
+<code>FutureCache</code>.  We advise replacing this usage with a
+<a href="https://github.com/ben-manes/caffeine">Caffeine</a> <code>FutureCache</code> available in
+<a href="https://github.com/twitter/util/blob/develop/util-cache/src/main/scala/com/twitter/cache/caffeine/CaffeineCache.scala">util-cache</a>. The migration is well documented
+in the Caffeine <a href="https://github.com/ben-manes/caffeine/wiki/Guava">user guide</a>.</p></li>
+<li><p>Finatra&rsquo;s <code>http</code> module has a few public APIs that use
+<code>com.google.common.net.MediaType</code>.  We aren&rsquo;t planning to address this
+in the immediate future, but it&rsquo;s something we&rsquo;d love to tackle given
+more time.</p></li>
+</ul>
 
-<p>See the <a href="http://www.scala-sbt.org/0.13/docs/Library-Management.html">sbt documentation on library management</a>
-for more details.</p>
+<p>Thanks for following along. Please feel free to ask questions on the
+<a href="https://groups.google.com/forum/#!forum/finaglers">mailing
+list</a> about
+anything that is unclear and we’ll help clarify if you would like to
+know more.</p>
+
+<p>Kevin Oliver and the Core Systems Libraries team</p>
 
 </div>
 </div>
