@@ -4,16 +4,74 @@
   <id>https://finagle.github.io/blog</id>
   <link href="https://finagle.github.io/blog"/>
   <link href="https://finagle.github.io/blog/blog/feed.xml" rel="self"/>
-  <updated>2018-01-16T16:00:00-08:00</updated>
+  <updated>2018-01-24T16:00:00-08:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>❄️ ❄️ ❄️ Winter Update ❄️ ❄️ ❄️</title>
+    <link rel="alternate" href="https://finagle.github.io/blog/2018/01/25/winter-update/"/>
+    <id>https://finagle.github.io/blog/2018/01/25/winter-update/</id>
+    <published>2018-01-24T16:00:00-08:00</published>
+    <updated>2018-01-25T14:01:03-08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;We&amp;rsquo;ve been running scalac around the clock to fend off the cold and bring you another quarter&amp;rsquo;s
+worth of features and improvements to Finagle and Friends: &lt;a href="https://twitter.github.io/finagle/"&gt;Finagle&lt;/a&gt;,
+&lt;a href="https://twitter.github.io/finatra/"&gt;Finatra&lt;/a&gt;,
+&lt;a href="https://twitter.github.io/scrooge"&gt;Scrooge&lt;/a&gt;,
+&lt;a href="https://twitter.github.io/twitter-server"&gt;TwitterServer&lt;/a&gt;, 
+&lt;a href="https://twitter.github.io/util"&gt;Util&lt;/a&gt; &lt;/p&gt;
+
+&lt;h4&gt;Efficiency&lt;/h4&gt;
+
+&lt;p&gt;Future received a more efficient &lt;a href="https://github.com/twitter/util/commit/e650dc5bd3dfbcee9a9ceb1bccf99ee591ea7101"&gt;LIFO callback evaluation order&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/twitter/finagle/commit/d63186f147653b5c222e613ba50ae0686ab071e3"&gt;ThriftMux&lt;/a&gt; and &lt;a href="https://github.com/twitter/finagle/commit/2d37c2c1684132121f15423b2f08054785f8e29c"&gt;memcached&lt;/a&gt; both received new push-based implementations bringing further cpu efficiency gains.&lt;/p&gt;
+
+&lt;h4&gt;Resiliency&lt;/h4&gt;
+
+&lt;p&gt;Our new load balancer &lt;a href="https://github.com/twitter/finagle/commit/1c1668da34f4dc5659fb3d872765c2b24fcc440e"&gt;Deterministic Aperture&lt;/a&gt; continued getting refinements along the way.&lt;/p&gt;
+
+&lt;h4&gt;Operability&lt;/h4&gt;
+
+&lt;p&gt;ThriftMux now supports &lt;a href="https://github.com/twitter/finagle/commit/df5f10bd00b070809ea1f1995becc9bbac6c3089"&gt;request and response headers&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Our summer intern &lt;a href="https://twitter.com/mckardah"&gt;@McKardah&lt;/a&gt; added the ability to wire Twitter Futures
+into &lt;a href="http://finagle.github.io/blog/2017/11/02/async-stack-traces/"&gt;IDEA’s async stacktraces&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finagle went on strict apache commons and &lt;a href="http://finagle.github.io/blog/2017/12/12/guava-less/"&gt;guava detoxes&lt;/a&gt;, significantly reducing the exposure of
+these large dependencies.&lt;/p&gt;
+
+&lt;p&gt;Finatra, Macaw, and &lt;a href="https://github.com/twitter/twitter-server/commit/c458b88161f56768d0226c8419424f8365574b83"&gt;Twitter-Server&lt;/a&gt; moved from util-logging to SLF4J.&lt;/p&gt;
+
+&lt;p&gt;Latency is one of the hardest things to diagnose in any system but it’s been made easier with the
+introduction of &lt;a href="https://github.com/twitter/finagle/commit/203fed55335633173b2a36b98c30c55336baaf3a"&gt;Trace level request logging&lt;/a&gt; which will identify both synchronous and asynchronous
+latency.&lt;/p&gt;
+
+&lt;h4&gt;Security&lt;/h4&gt;
+
+&lt;p&gt;Twitter’s util library learned how to read &lt;a href="https://github.com/twitter/util/commit/23f4a6a049c55121a4cda34be3b947f3ea4bfc46"&gt;PKCS#8 PEM PrivateKey files&lt;/a&gt; and Certificate Revocation List
+PEM formatted &lt;a href="https://github.com/twitter/util/commit/32d8cc8ac4fc4c1f9417df6ec6da392291eb4759"&gt;X509CRL files&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;As always, please feel free to ask questions on
+either the &lt;a href="https://groups.google.com/forum/#!forum/finaglers"&gt;Finagle&lt;/a&gt; or
+&lt;a href="https://groups.google.com/forum/#!forum/finatra-users"&gt;Finatra&lt;/a&gt; mailing lists or on &lt;a href="https://gitter.im/twitter/finagle"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;See you in the Spring!&lt;/p&gt;
+
+&lt;p&gt;Daniel Schobel and the Finagle team&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>📆 January 2018 Release Notes - Version 18.1.0</title>
     <link rel="alternate" href="https://finagle.github.io/blog/2018/01/17/release-notes/"/>
     <id>https://finagle.github.io/blog/2018/01/17/release-notes/</id>
     <published>2018-01-16T16:00:00-08:00</published>
-    <updated>2018-01-18T09:03:51-08:00</updated>
+    <updated>2018-01-25T13:52:00-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -179,46 +237,11 @@ Certificate Revocation List PEM formatted &lt;code&gt;X509CRL&lt;/code&gt; files
 </content>
   </entry>
   <entry>
-    <title>Guava-less</title>
-    <link rel="alternate" href="https://finagle.github.io/blog/2017/12/12/guava-less/"/>
-    <id>https://finagle.github.io/blog/2017/12/12/guava-less/</id>
-    <published>2017-12-11T16:00:00-08:00</published>
-    <updated>2018-01-18T09:03:37-08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;We have been minimizing our dependency on &lt;a href="https://github.com/google/guava"&gt;Guava&lt;/a&gt;, which is big
-and often causes version conflicts for our users. This work will be
-released as part of January&amp;rsquo;s 18.1 release, though there are 2 places
-it remains:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;util-cache-guava&lt;/code&gt; has a &lt;code&gt;CacheBuilder&lt;/code&gt;-based implementation of
-&lt;code&gt;FutureCache&lt;/code&gt;.  We advise replacing this usage with a
-&lt;a href="https://github.com/ben-manes/caffeine"&gt;Caffeine&lt;/a&gt; &lt;code&gt;FutureCache&lt;/code&gt; available in
-&lt;a href="https://github.com/twitter/util/blob/develop/util-cache/src/main/scala/com/twitter/cache/caffeine/CaffeineCache.scala"&gt;util-cache&lt;/a&gt;. The migration is well documented
-in the Caffeine &lt;a href="https://github.com/ben-manes/caffeine/wiki/Guava"&gt;user guide&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Finatra&amp;rsquo;s &lt;code&gt;http&lt;/code&gt; module has a few public APIs that use
-&lt;code&gt;com.google.common.net.MediaType&lt;/code&gt;.  We aren&amp;rsquo;t planning to address this
-in the immediate future, but it&amp;rsquo;s something we&amp;rsquo;d love to tackle given
-more time.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Thanks for following along. Please feel free to ask questions on the
-&lt;a href="https://groups.google.com/forum/#!forum/finaglers"&gt;mailing
-list&lt;/a&gt; about
-anything that is unclear and we’ll help clarify if you would like to
-know more.&lt;/p&gt;
-
-&lt;p&gt;Kevin Oliver and the Core Systems Libraries team&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
     <title>⛄ December 2017 Release Notes - Version 17.12.0</title>
     <link rel="alternate" href="https://finagle.github.io/blog/2017/12/12/release-notes/"/>
     <id>https://finagle.github.io/blog/2017/12/12/release-notes/</id>
     <published>2017-12-11T16:00:00-08:00</published>
-    <updated>2018-01-18T09:03:37-08:00</updated>
+    <updated>2018-01-25T13:52:00-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -357,11 +380,46 @@ transport. &lt;a href="https://github.com/twitter/twitter-server/commit/f8f64a46
 </content>
   </entry>
   <entry>
+    <title>Guava-less</title>
+    <link rel="alternate" href="https://finagle.github.io/blog/2017/12/12/guava-less/"/>
+    <id>https://finagle.github.io/blog/2017/12/12/guava-less/</id>
+    <published>2017-12-11T16:00:00-08:00</published>
+    <updated>2018-01-25T13:52:00-08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;We have been minimizing our dependency on &lt;a href="https://github.com/google/guava"&gt;Guava&lt;/a&gt;, which is big
+and often causes version conflicts for our users. This work will be
+released as part of January&amp;rsquo;s 18.1 release, though there are 2 places
+it remains:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;util-cache-guava&lt;/code&gt; has a &lt;code&gt;CacheBuilder&lt;/code&gt;-based implementation of
+&lt;code&gt;FutureCache&lt;/code&gt;.  We advise replacing this usage with a
+&lt;a href="https://github.com/ben-manes/caffeine"&gt;Caffeine&lt;/a&gt; &lt;code&gt;FutureCache&lt;/code&gt; available in
+&lt;a href="https://github.com/twitter/util/blob/develop/util-cache/src/main/scala/com/twitter/cache/caffeine/CaffeineCache.scala"&gt;util-cache&lt;/a&gt;. The migration is well documented
+in the Caffeine &lt;a href="https://github.com/ben-manes/caffeine/wiki/Guava"&gt;user guide&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finatra&amp;rsquo;s &lt;code&gt;http&lt;/code&gt; module has a few public APIs that use
+&lt;code&gt;com.google.common.net.MediaType&lt;/code&gt;.  We aren&amp;rsquo;t planning to address this
+in the immediate future, but it&amp;rsquo;s something we&amp;rsquo;d love to tackle given
+more time.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thanks for following along. Please feel free to ask questions on the
+&lt;a href="https://groups.google.com/forum/#!forum/finaglers"&gt;mailing
+list&lt;/a&gt; about
+anything that is unclear and we’ll help clarify if you would like to
+know more.&lt;/p&gt;
+
+&lt;p&gt;Kevin Oliver and the Core Systems Libraries team&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title>🍠 November 2017 Release Notes - Version 17.11.0</title>
     <link rel="alternate" href="https://finagle.github.io/blog/2017/11/17/release-notes/"/>
     <id>https://finagle.github.io/blog/2017/11/17/release-notes/</id>
     <published>2017-11-16T16:00:00-08:00</published>
-    <updated>2018-01-18T09:03:37-08:00</updated>
+    <updated>2018-01-25T13:52:00-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -468,7 +526,7 @@ formatting, note: the default &lt;code&gt;LogFormatter&lt;/code&gt; does not use
     <link rel="alternate" href="https://finagle.github.io/blog/2017/11/02/async-stack-traces/"/>
     <id>https://finagle.github.io/blog/2017/11/02/async-stack-traces/</id>
     <published>2017-11-01T17:00:00-07:00</published>
-    <updated>2018-01-18T09:03:37-08:00</updated>
+    <updated>2018-01-25T13:52:00-08:00</updated>
     <author>
       <name>Article Author</name>
     </author>
@@ -582,220 +640,6 @@ the &lt;a href="https://groups.google.com/forum/#!forum/finaglers"&gt;Finaglers 
 &lt;a href="https://gitter.im/twitter/finagle"&gt;chat&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Happy debugging!&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>🎃 October 2017 Release Notes - Version 17.10.0</title>
-    <link rel="alternate" href="https://finagle.github.io/blog/2017/10/27/release-notes/"/>
-    <id>https://finagle.github.io/blog/2017/10/27/release-notes/</id>
-    <published>2017-10-26T17:00:00-07:00</published>
-    <updated>2018-01-18T09:03:37-08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;The October releases have arrived! For this release and hereafter, Finagle, Finatra,
-Scrooge, Util, and TwitterServer will be versioned as $year.$month.$patch, as opposed to
-$major.$minor.$patch. This means that all project versions will be in sync.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://github.com/twitter/finagle/blob/finagle-17.10.0/CHANGES"&gt;Finagle 17.10.0&lt;/a&gt;, &lt;a href="https://github.com/twitter/finatra/blob/finatra-17.10.0/CHANGELOG.md"&gt;Finatra 17.10.0&lt;/a&gt;, &lt;a href="https://github.com/twitter/scrooge/blob/scrooge-17.10.0/CHANGES"&gt;Scrooge 17.10.0&lt;/a&gt;, &lt;a href="https://github.com/twitter/twitter-server/blob/twitter-server-17.10.0/CHANGES"&gt;TwitterServer 17.10.0&lt;/a&gt;, and &lt;a href="https://github.com/twitter/util/blob/util-17.10.0/CHANGES"&gt;Util 17.10.0&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;Finagle&lt;/h3&gt;
-
-&lt;p&gt;New Features:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;finagle-core: DeadlineFilter may now be created from the class and used as a
-regular Filter in addition to a stack module as before. &lt;a href="https://github.com/twitter/finagle/commit/b80a1df4156fc6f7e4b35399d996bc46af465881"&gt;b80a1df4&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finagle-mysql: Add ability to toggle the &lt;code&gt;CLIENT_FOUND_ROWS&lt;/code&gt; flag. &lt;a href="https://github.com/twitter/finagle/commit/fae2e69d81faeef7cf0dee0340cb4ec27d2bcf10"&gt;fae2e69d&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finagle-http: Separated the DtabFilter.Extractor from the ServerContextFilter into
-a new module: ServerDtabContextFilter. While this is still enabled in the default
-Http server stack, it can be disabled independently of the ServerContextFilter.
-&lt;a href="https://github.com/twitter/finagle/commit/335d639f2140f44948b914b931bd467774e72fc2"&gt;335d639f&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Runtime Behavior Changes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;finagle-netty4: &lt;code&gt;Netty4ClientEngineFactory&lt;/code&gt; and &lt;code&gt;Netty4ServerEngineFactory&lt;/code&gt; now
-validate loaded certificates in all cases to ensure that the current date
-range is within the validity range specified in the certificate. &lt;a href="https://github.com/twitter/finagle/commit/dc3230e3a98fb6ec68f23f8fc00c703401db5738"&gt;dc3230e3&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finagle-netty4: &lt;code&gt;TrustCredentials.Insecure&lt;/code&gt; now works with native SSL/TLS engines.
-&lt;a href="https://github.com/twitter/finagle/commit/6b822e94e309f0946ace6586095a511d47fa152b"&gt;6b822e94&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finagle-http2: Upgraded to the new netty http/2 API in netty version 4.1.16.Final,
-which fixes several long-standing bugs but has some bugs around cleartext http/2.
-One of the work-arounds modifies the visibility of a private field, so it&amp;rsquo;s incompatible
-with security managers.  This is only true for http/2&amp;ndash;all other protocols will be unaffected.
-&lt;a href="https://github.com/twitter/finagle/commit/bb01393fc2a41a34e7ff92e1e7dc24bcadbef954"&gt;bb01393f&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finagle-http: Netty 3 &lt;code&gt;HeaderMap&lt;/code&gt; was replaced with our own implementation.
-&lt;a href="https://github.com/twitter/finagle/commit/199dc51cfcf573349fe436d7eaf594a857667657"&gt;199dc51c&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Deprecations:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;finagle-base-http: With the intention to make &lt;code&gt;c.t.f.http.Cookie&lt;/code&gt; immutable,
-&lt;code&gt;set&lt;/code&gt; methods on &lt;code&gt;c.t.f.http.Cookie&lt;/code&gt; have been deprecated:
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;comment_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;commentUrl_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;domain_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;maxAge_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;path_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ports_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;value_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;version_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;httpOnly_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;isDiscard_=&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;isSecure_=&lt;/code&gt;
-Use the &lt;code&gt;c.t.f.http.Cookie&lt;/code&gt; constructor to set &lt;code&gt;domain&lt;/code&gt;, &lt;code&gt;maxAge&lt;/code&gt;, &lt;code&gt;path&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;httpOnly&lt;/code&gt;,
-and &lt;code&gt;secure&lt;/code&gt;. &lt;code&gt;comment&lt;/code&gt;, &lt;code&gt;commentUrl&lt;/code&gt;, &lt;code&gt;ports&lt;/code&gt;, &lt;code&gt;version&lt;/code&gt;, and &lt;code&gt;discard&lt;/code&gt; have been removed
-per RFC-6265. &lt;a href="https://github.com/twitter/finagle/commit/717600969e4d4e7db047e758deae0ba30282461d"&gt;71760096&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Alternatively, use the &lt;code&gt;domain&lt;/code&gt;, &lt;code&gt;maxAge&lt;/code&gt;, &lt;code&gt;path&lt;/code&gt;, &lt;code&gt;httpOnly&lt;/code&gt;, and &lt;code&gt;secure&lt;/code&gt; methods to create a
-  new &lt;code&gt;Cookie&lt;/code&gt; with the existing fields set, and the respective field set to a given value.
-  &lt;a href="https://github.com/twitter/finagle/commit/14beb975d1c3aa4f57cf2ee3a0ab46c766496737"&gt;14beb975&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;finagle-base-http: &lt;code&gt;c.t.f.http.Cookie.isSecure&lt;/code&gt; and &lt;code&gt;c.t.f.http.Cookie.isDiscard&lt;/code&gt;
-have been deprecated. Use &lt;code&gt;c.t.f.http.Cookie.secure&lt;/code&gt; for &lt;code&gt;c.t.f.http.Cookie.isSecure&lt;/code&gt;.
-&lt;code&gt;isDiscard&lt;/code&gt; has been removed per RFC-6265. &lt;a href="https://github.com/twitter/finagle/commit/717600969e4d4e7db047e758deae0ba30282461d"&gt;71760096&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Breaking API Changes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;finagle-mysql: Moved &lt;code&gt;Cursors.cursor&lt;/code&gt; method to &lt;code&gt;Client&lt;/code&gt; trait, and removed &lt;code&gt;Cursors&lt;/code&gt; trait.
-This allows cursor queries to used with transactions. &lt;a href="https://github.com/twitter/finagle/commit/1224721ccf25930e5f2cede3f4ecedfca219dee9"&gt;1224721c&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finagle-mux: Expose transport contexts in mux.Request and mux.Response. &lt;a href="https://github.com/twitter/finagle/commit/f0f46785a24daa09a68ebcf2f4b841474df31114"&gt;f0f46785&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finagle-mux: The &amp;ldquo;leased&amp;rdquo; gauge has been removed from the mux client implementation since the
-metric is reported as the sum of the value over all clients which is unlikely to be useful.
-&lt;a href="https://github.com/twitter/finagle/commit/1c31e3848e337f3bc5b8bfd687daadffc64dbb94"&gt;1c31e384&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Finatra&lt;/h3&gt;
-
-&lt;p&gt;Added:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;inject-core: Remove deprecated &lt;code&gt;c.t.inject.TestMixin#resetMocks&lt;/code&gt;. Properly
-use &lt;code&gt;c.t.inject.Mockito&lt;/code&gt; trait in tests. Deprecate resetting of mocks and
-resettables in &lt;code&gt;c.t.inject.IntegrationTestMixin&lt;/code&gt;. &lt;a href="https://github.com/twitter/finatra/commit/b8cfeb659b39cfb232a2c7142700ff437fe8adf2"&gt;b8cfeb65&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finatra-http: Parameterize &lt;code&gt;@RouteParam&lt;/code&gt;,&lt;code&gt;@QueryParam&lt;/code&gt;,&lt;code&gt;@FormParam&lt;/code&gt;, and
-&lt;code&gt;@Header&lt;/code&gt; to allow specifying the field name to read from the params or
-header map. Previously these annotations only looked for values by the
-case class field name leading to possible ugliness when defining case
-class fields (especially with &lt;code&gt;@Header&lt;/code&gt;). &lt;a href="https://github.com/twitter/finatra/commit/9913a6cccc378c6ba286f91a317381db5b378059"&gt;9913a6cc&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finatra: Add support for using a &lt;code&gt;java.lang.annotation.Annotation&lt;/code&gt; instance
-with the &lt;code&gt;#bind[T]&lt;/code&gt; testing DSL. This adds a way to bind instances in tests
-that use the @Named binding annotation. &lt;a href="https://github.com/twitter/finatra/commit/f9503c4ce1acda711abf093d941f489f614900ea"&gt;f9503c4c&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finatra-http: Allow setting the content type of a Mustache view.
-&lt;a href="https://github.com/twitter/finatra/commit/2009159f5b6975d8f5aca7b3018356ebd90d08dd"&gt;2009159f&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Changed:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;finatra-utils: Remove deprecated &lt;code&gt;ExternalServiceExceptionMatcher&lt;/code&gt;. &lt;a href="https://github.com/twitter/finatra/commit/9c78117a1fe5a8731e4315d0ce7f60c3f47c419b"&gt;9c78117a&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finatra-jackson: ScalaType&amp;rsquo;s &lt;code&gt;isMap&lt;/code&gt; and &lt;code&gt;isCollection&lt;/code&gt; methods now check that
-the given object&amp;rsquo;s class is a subclass of &lt;code&gt;scala.collection.Map[Any, Any]&lt;/code&gt; and
-&lt;code&gt;scala.collection.Iterable[Any]&lt;/code&gt;, respectively. Previously the superclasses&amp;rsquo;
-packages were unspecified. This is a runtime behavior change.
-&lt;a href="https://github.com/twitter/finatra/commit/15a4e529153437bb43ee65d38a8160d5ae137ff7"&gt;15a4e529&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finatra-http: Require that route URIs and prefixes begin with forward slash (/).
-&lt;a href="https://github.com/twitter/finatra/commit/9bd53557a3fc24d4ae9ea98392388d9ac9d440f2"&gt;9bd53557&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;inject-utils: (BREAKING API CHANGE) RichOption toFutureOrFail, toTryOrFail, and
-toFutureOrElse signature changed to take the fail or else parameter by name.
-&lt;a href="https://github.com/twitter/finatra/commit/a1efd13ff295051ce06679ce3bf7d99b20ccbd7b"&gt;a1efd13f&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;inject-server: Remove usage of deprecated &lt;code&gt;c.t.inject.logging.Slf4jBridgeUtility&lt;/code&gt;.
-Change usages to &lt;code&gt;c.t.util.logging.Slf4jBridgeUtility&lt;/code&gt;. &lt;a href="https://github.com/twitter/finatra/commit/4cf842ba4aaed545a897f60e546b25d5114960cb"&gt;4cf842ba&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;finatra-http, inject-thrift-client: Remove netty3 specific types and dependency.
-In finatra-http, the code using these types is deprecated and can be removed allowing
-us to remove netty3-specific dependencies. In inject-thrift-client we can default to
-use the DefaultTimer for the backupRequestFilter method param instead of the
-HashedWheelTimer. &lt;a href="https://github.com/twitter/finatra/commit/d8fb15fe4fc7beb6ee7f1b85eef62af2f510a7af"&gt;d8fb15fe&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Fixed:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;finatra-jackson: Fix issue causing &lt;code&gt;IllegalArgumentException&lt;/code&gt; from Validations to
-be swallowed. A catch clause in the &lt;code&gt;c.t.finatra.json.internal.caseclass.jackson.FinatraCaseClassDeserializer&lt;/code&gt;
-is too broad as it catches thrown &lt;code&gt;IllegalArgumentException&lt;/code&gt;s from field validations
-when the annotation is applied to a field of the incorrect type, e.g., when &lt;code&gt;@Max&lt;/code&gt; is
-applied to a String field. &lt;a href="https://github.com/twitter/finatra/commit/37ec705095e2702a31dc1fb6d75f078746acbc5a"&gt;37ec7050&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Util&lt;/h3&gt;
-
-&lt;p&gt;API Changes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;util-app: c.t.app.Flag.let and letClear are now generic in their return type.
-&lt;a href="https://github.com/twitter/util/commit/a58db2892d82f68bbaa5b41c1394aca9011fd5ef"&gt;a58db289&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Bug Fixes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;util-core: Fix Buf.ByteArray.Shared.apply(bytes,begin,end) constructor function.
-&lt;a href="https://github.com/twitter/util/commit/363778374f8366e13ab0142ca549559a6ba5516c"&gt;36377837&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Runtime Behavior Changes:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;util-core: c.t.io.Buf.ByteArray.&lt;a href="Array[Byte],%20begin,%20end"&gt;Owned.Shared&lt;/a&gt; now
-validates its input arguments. &lt;a href="https://github.com/twitter/util/commit/363778374f8366e13ab0142ca549559a6ba5516c"&gt;36377837&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;util-jvm: The &lt;code&gt;jvm/mem/postGC/{poolName}/max&lt;/code&gt; metric has been removed
-because it is the same as the &lt;code&gt;jvm/mem/current/{poolName}/max&lt;/code&gt; metric.
-&lt;a href="https://github.com/twitter/util/commit/357912dac0696cb77d77070ec95504145a0902ba"&gt;357912da&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;util-security: Assert validity of X.509 certificates when read from a file.
-Attempting to read a &lt;code&gt;c.t.util.security.X509CeritificateFile&lt;/code&gt; will now assert
-that the certificate is valid, i.e., if the current date and time are within
-the validity period given in the certificate. &lt;a href="https://github.com/twitter/util/commit/9dc859efef85d173aaefe08d9aa930fa7662006a"&gt;9dc859ef&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Scrooge&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;scrooge-generator: For generated scala $FinagleService, moved per-endpoint statsFilter to the
-outermost of filter chain so it can capture all exceptions, added per-endpoint response
-classification in statsFilter. &lt;a href="https://github.com/twitter/scrooge/commit/853323dce96d8e8d0d0c7f63d888dc969472f67a"&gt;853323dc&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;scrooge-generator: Generated scala $FinagleClient takes a &lt;code&gt;RichClientParam&lt;/code&gt; for all
-configuration params, such as &lt;code&gt;TProtocolFactory&lt;/code&gt;, &lt;code&gt;ResponseClassifier&lt;/code&gt;, &lt;code&gt;maxReusableBufferSize&lt;/code&gt;,
-and &lt;code&gt;StatsReceiver&lt;/code&gt;, $FinagleService takes a &lt;code&gt;RichServerParam&lt;/code&gt;. &lt;a href="https://github.com/twitter/scrooge/commit/8bdf36cbd0297f45704ea48dc7a62872f0e581ce"&gt;8bdf36cb&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Twitter Server&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;TwitterServer now uses the &lt;a href="https://www.slf4j.org/"&gt;&lt;code&gt;slf4j-api&lt;/code&gt;&lt;/a&gt; for framework logging. Backwards compatibility is 
-supplied via the &lt;a href="https://github.com/twitter/twitter-server/tree/6565a1c6ab6d111e9858e2e9e2e5d307d8ca8b3e/slf4j-jdk14"&gt;&lt;code&gt;twitter-server/slf4j-jdk14&lt;/code&gt;&lt;/a&gt; library.
-See the TwitterServer &lt;a href="https://twitter.github.io/twitter-server/Features.html#logging"&gt;documentation&lt;/a&gt; for more information. &lt;a href="https://github.com/twitter/twitter-server/commit/c458b88161f56768d0226c8419424f8365574b83"&gt;c458b881&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;All admin endpoints except ping + healthcheck are now by-default served outside
-the global worker pool. &lt;a href="https://github.com/twitter/twitter-server/commit/acf13a2a933618fb3f719a1a4cf7b5b53ef23b7d"&gt;acf13a2a&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Rename AdminHttpServer#defaultHttpPort to AdminHttpServer#defaultAdminPort.
-&lt;a href="https://github.com/twitter/twitter-server/commit/15e35a3a3070c50168ff55fd83a2dff28b09795c"&gt;15e35a3a&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Dependencies&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Netty has been updated to 4.1.16 &lt;a href="https://github.com/twitter/finagle/commit/f28705d556077cbd56b19ce90eba35be7203ad07"&gt;f28705d5&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;Changelogs&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/twitter/finagle/blob/finagle-17.10.0/CHANGES"&gt;Finagle 17.10.0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/twitter/util/blob/util-17.10.0/CHANGES"&gt;Util 17.10.0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/twitter/scrooge/blob/scrooge-17.10.0/CHANGES"&gt;Scrooge 17.10.0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/twitter/twitter-server/blob/twitter-server-17.10.0/CHANGES"&gt;TwitterServer 17.10.0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/twitter/finatra/blob/finatra-17.10.0/CHANGELOG.md"&gt;Finatra 17.10.0&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
