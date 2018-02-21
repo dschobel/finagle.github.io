@@ -4,10 +4,160 @@
   <id>https://finagle.github.io/blog</id>
   <link href="https://finagle.github.io/blog"/>
   <link href="https://finagle.github.io/blog/blog/feed.xml" rel="self"/>
-  <updated>2018-01-24T16:00:00-08:00</updated>
+  <updated>2018-02-04T16:00:00-08:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>🏮 February 2018 Release Notes - Version 18.2.0</title>
+    <link rel="alternate" href="https://finagle.github.io/blog/2018/02/05/release-notes/"/>
+    <id>https://finagle.github.io/blog/2018/02/05/release-notes/</id>
+    <published>2018-02-04T16:00:00-08:00</published>
+    <updated>2018-02-06T15:42:57-08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Happy Lunar New Year! The February release is here.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/twitter/finagle/blob/finagle-18.2.0/CHANGES"&gt;Finagle 18.2.0&lt;/a&gt;, &lt;a href="https://github.com/twitter/finatra/blob/finatra-18.2.0/CHANGELOG.md"&gt;Finatra 18.2.0&lt;/a&gt;, &lt;a href="https://github.com/twitter/scrooge/blob/scrooge-18.2.0/CHANGES"&gt;Scrooge 18.2.0&lt;/a&gt;, &lt;a href="https://github.com/twitter/twitter-server/blob/twitter-server-18.2.0/CHANGES"&gt;TwitterServer 18.2.0&lt;/a&gt;, and &lt;a href="https://github.com/twitter/util/blob/util-18.2.0/CHANGES"&gt;Util 18.2.0&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;&lt;a href="https://github.com/twitter/finagle/"&gt;Finagle&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;New Features&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;finagle-core: Add orElse to allow composition of &lt;code&gt;FailureAccrualPolicy&lt;/code&gt;s.
+&lt;a href="https://github.com/twitter/finagle/commit/8c1e718e9b724afbe07e7ecf995eb72b7f6650d1"&gt;8c1e718e&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;finagle-core: &lt;code&gt;c.t.f.http.MethodBuilder&lt;/code&gt; now exposes a method &lt;code&gt;newService&lt;/code&gt; without a
+&lt;code&gt;methodName&lt;/code&gt; to create a client. &lt;code&gt;c.t.f.thriftmux.MethodBuilder&lt;/code&gt; now exposes a
+method &lt;code&gt;servicePerEndpoint&lt;/code&gt; without a &lt;code&gt;methodName&lt;/code&gt; to create a client. &lt;a href="https://github.com/twitter/finagle/commit/d8e010d6f0d4c0bc64e5628b4832ca148212e8b8"&gt;d8e010d6&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;finagle-thriftmux: Expose the underlying configured client &lt;code&gt;label&lt;/code&gt; in the
+&lt;code&gt;c.t.finagle.thriftmux.MethodBuilder&lt;/code&gt;. &lt;a href="https://github.com/twitter/finagle/commit/653e2696b424adc27c5fe67d0479cb896b31fdbd"&gt;653e2696&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bug Fixes&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;finagle-http2: http2 servers no longer leak ping bodies. &lt;a href="https://github.com/twitter/finagle/commit/02841dfd3022470f0a0c7b5866cfa1c2efcbc61c"&gt;02841dfd&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Deprecations&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;finagle-core: &lt;code&gt;c.t.finagle.ssl.Ssl&lt;/code&gt; and related classes have been
+deprecated. They were replaced as the primary way of using SSL/TLS
+within Finagle in release 6.44.0 (April 2017). Please migrate to using
+&lt;code&gt;c.t.f.ssl.client.SslClientEngineFactory&lt;/code&gt; or
+&lt;code&gt;c.t.f.ssl.server.SslServerEngineFactory&lt;/code&gt; instead. &lt;a href="https://github.com/twitter/finagle/commit/0b8a2890a175d7ab5983683953c25db6038a0698"&gt;0b8a2890&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Breaking API Changes&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;finagle-base-http: &lt;code&gt;c.t.f.h.codec.HttpCodec&lt;/code&gt; has been moved to the &lt;code&gt;finagle-http&lt;/code&gt;
+project. &lt;a href="https://github.com/twitter/finagle/commit/350953aee0c6cae3a550cdf34bc1a30c4bfc5beb"&gt;350953ae&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;finagle base-http: &lt;code&gt;c.t.f.h.Request.multipart&lt;/code&gt; has been removed.
+Use &lt;code&gt;c.t.f.h.exp.MultipartDecoder&lt;/code&gt; instead. &lt;a href="https://github.com/twitter/finagle/commit/b9d71e36b64eaced148a5da48eb200b0a5725c88"&gt;b9d71e36&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;finagle-http: Split the toggle &amp;lsquo;c.t.f.h.UseH2C&amp;rsquo; into a client-side toggle and a
+server-side toggle, named &amp;lsquo;c.t.f.h.UseH2CClients&amp;rsquo;, and &amp;lsquo;c.t.f.h.UseH2CServers&amp;rsquo;,
+respectively.  &lt;a href="https://github.com/twitter/finagle/commit/0d960398d63e362c0296798a59a6c7854ba1ac70"&gt;0d960398&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Runtime Behavior Changes&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;finagle-core: Finagle clients with retry budgets or backoffs should no
+longer have infinite hash codes. &lt;a href="https://github.com/twitter/finagle/commit/88e7bea9bf29bc5fed3207782bf82b25bf869c4a"&gt;88e7bea9&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;&lt;a href="https://github.com/twitter/finatra/"&gt;Finatra&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Added&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;inject-thrift-client: Add methods to &lt;code&gt;c.t.inject.thrift.filters.ThriftClientFilterChain&lt;/code&gt; to allow
+Tunable timeouts and request timeouts. &lt;a href="https://github.com/twitter/finatra/commit/72664be4439da4425dfe63fa325f4c1ebbc5bf4b"&gt;72664be4&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;inject-thrift-client: Add &lt;code&gt;idempotent&lt;/code&gt; and &lt;code&gt;nonIdempotent&lt;/code&gt; methods to
+&lt;code&gt;c.t.inject.thrift.ThriftMethodBuilder&lt;/code&gt;, which can be used to configure retries and the sending of
+backup requests. &lt;a href="https://github.com/twitter/finatra/commit/7868964d223656f4e2b2ab738c835f45e30add76"&gt;7868964d&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;inject-thrift-client: Add &lt;code&gt;c.t.inject.thrift.modules.ServicePerEndpointModule&lt;/code&gt; for
+building ThriftMux clients using the &lt;code&gt;thriftmux.MethodBuilder&lt;/code&gt;. &lt;a href="https://github.com/twitter/finatra/commit/42ef3bcc1ad8fcda877245554ceb4c3ffcd348c8"&gt;42ef3bcc&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Changed&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;inject-thrift: Update &lt;code&gt;c.t.inject.thrift.PossibleRetryable&lt;/code&gt; to specify a ResponseClassifier
+and update usages in inject-thrift-client to use it. &lt;a href="https://github.com/twitter/finatra/commit/582d46bc3d79a12789c208974ab197c02748615b"&gt;582d46bc&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;inject-thrift-client: Un-deprecate &lt;code&gt;c.t.inject.thrift.modules.ThriftClientModule&lt;/code&gt;
+and update for parity with &lt;code&gt;ServicePerEndpointModule&lt;/code&gt; in regards to ThriftMux
+client configuration. Update documentation. Rename &lt;code&gt;ServicePerEndpointModule&lt;/code&gt; to
+the more descriptive and consistently named &lt;code&gt;ThriftMethodBuilderClientModule&lt;/code&gt;.
+&lt;a href="https://github.com/twitter/finatra/commit/c4dc773e401d5e8d4d2bd3d7259ee86d47020d32"&gt;c4dc773e&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;&lt;a href="https://github.com/twitter/scrooge/"&gt;Scrooge&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;scrooge-generator: Add &lt;code&gt;asClosable&lt;/code&gt; method to &lt;code&gt;ServicePerEndpoint&lt;/code&gt; and
+&lt;code&gt;ReqRepServicePerEndpoint&lt;/code&gt; interfaces as well. &lt;a href="https://github.com/twitter/scrooge/commit/597864aca641419b43cb4c32201a063439c5991c"&gt;597864ac&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;scrooge-generator: Remove unused &lt;code&gt;functionToService&lt;/code&gt; and &lt;code&gt;serviceToFunction&lt;/code&gt;
+methods along with &lt;code&gt;ServiceType&lt;/code&gt; and &lt;code&gt;ReqRepServiceType&lt;/code&gt; type aliases in
+order to simplify code generation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;NOTE: This functionality can be manually replicated by users if/when needed
+  to convert between a Function1 and a Finagle &lt;code&gt;Service&lt;/code&gt;. &lt;a href="https://github.com/twitter/scrooge/commit/2d25eb25fc91d7ad3688377dd86330a42799c8c3"&gt;2d25eb25&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;scrooge-generator: Scala generated client now has a asClosable method returns c.t.u.Closable,
+client now can be closed by calling &lt;code&gt;client.asClosable.close&lt;/code&gt;. Note that &lt;code&gt;asClosable&lt;/code&gt; won&amp;rsquo;t be
+generated if it is also defined by the user. &lt;a href="https://github.com/twitter/scrooge/commit/1fa4f0c6df334b1bcca71fe53683ee15f4aa5cc5"&gt;1fa4f0c6&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;scrooge-generator: Renamed subclasses of &lt;code&gt;com.twitter.scrooge.RichResponse&lt;/code&gt;:
+&lt;code&gt;ProtocolExceptionResponse&lt;/code&gt;, &lt;code&gt;SuccessfulResponse&lt;/code&gt;, and &lt;code&gt;ThriftExceptionResponse&lt;/code&gt;.
+These case classes are for representing different response types and should be only
+used by the generated code. &lt;a href="https://github.com/twitter/scrooge/commit/2194e77d733d464d835073a5ca03fb368d59cbcf"&gt;2194e77d&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;&lt;a href="https://github.com/twitter/twitter-server/"&gt;TwitterServer&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Dependencies&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Removed &amp;lsquo;finagle-zipkin-core&amp;rsquo; as a depdendency since there was no
+code in twitter-server which used it. &lt;a href="https://github.com/twitter/twitter-server/commit/9f5b885852e1afee978af55ce3aa74231d27a8f7"&gt;9f5b8858&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;&lt;a href="https://github.com/twitter/util/"&gt;Util&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;New Features:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;util-core: Added implicit conversion for percentage specified as &amp;ldquo;x.percent&amp;rdquo;
+to a fractional Double in &lt;code&gt;c.t.conversions.percent&lt;/code&gt;. &lt;a href="https://github.com/twitter/util/commit/e573d263788271d3ab6094361f7c2fe4528d66a2"&gt;e573d263&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;util-tunable: Add deserializer for &lt;code&gt;c.t.u.StorageUnit&lt;/code&gt; to JsonTunableMapper
+&lt;a href="https://github.com/twitter/util/commit/d320545a8537d59050a7db988d54b589dcdf701c"&gt;d320545a&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Runtime Behavior Changes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;util-app: When &lt;code&gt;c.t.a.App.exitOnError&lt;/code&gt; is called, it now gives &lt;code&gt;close&lt;/code&gt;
+an opportunity to clean up resources before exiting with an error.
+&lt;a href="https://github.com/twitter/util/commit/aa32eb16f03635dbdc9540366a880d648aa58949"&gt;aa32eb16&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Changelogs&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/twitter/finagle/blob/finagle-18.2.0/CHANGES"&gt;Finagle 18.2.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/twitter/util/blob/util-18.2.0/CHANGES"&gt;Util 18.2.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/twitter/scrooge/blob/scrooge-18.2.0/CHANGES"&gt;Scrooge 18.2.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/twitter/twitter-server/blob/twitter-server-18.2.0/CHANGES"&gt;TwitterServer 18.2.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/twitter/finatra/blob/finatra-18.2.0/CHANGELOG.md"&gt;Finatra 18.2.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>❄️ ❄️ ❄️ Winter Update ❄️ ❄️ ❄️</title>
     <link rel="alternate" href="https://finagle.github.io/blog/2018/01/25/winter-update/"/>
@@ -237,6 +387,41 @@ Certificate Revocation List PEM formatted &lt;code&gt;X509CRL&lt;/code&gt; files
 </content>
   </entry>
   <entry>
+    <title>Guava-less</title>
+    <link rel="alternate" href="https://finagle.github.io/blog/2017/12/12/guava-less/"/>
+    <id>https://finagle.github.io/blog/2017/12/12/guava-less/</id>
+    <published>2017-12-11T16:00:00-08:00</published>
+    <updated>2018-01-25T13:52:00-08:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;We have been minimizing our dependency on &lt;a href="https://github.com/google/guava"&gt;Guava&lt;/a&gt;, which is big
+and often causes version conflicts for our users. This work will be
+released as part of January&amp;rsquo;s 18.1 release, though there are 2 places
+it remains:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;util-cache-guava&lt;/code&gt; has a &lt;code&gt;CacheBuilder&lt;/code&gt;-based implementation of
+&lt;code&gt;FutureCache&lt;/code&gt;.  We advise replacing this usage with a
+&lt;a href="https://github.com/ben-manes/caffeine"&gt;Caffeine&lt;/a&gt; &lt;code&gt;FutureCache&lt;/code&gt; available in
+&lt;a href="https://github.com/twitter/util/blob/develop/util-cache/src/main/scala/com/twitter/cache/caffeine/CaffeineCache.scala"&gt;util-cache&lt;/a&gt;. The migration is well documented
+in the Caffeine &lt;a href="https://github.com/ben-manes/caffeine/wiki/Guava"&gt;user guide&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finatra&amp;rsquo;s &lt;code&gt;http&lt;/code&gt; module has a few public APIs that use
+&lt;code&gt;com.google.common.net.MediaType&lt;/code&gt;.  We aren&amp;rsquo;t planning to address this
+in the immediate future, but it&amp;rsquo;s something we&amp;rsquo;d love to tackle given
+more time.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thanks for following along. Please feel free to ask questions on the
+&lt;a href="https://groups.google.com/forum/#!forum/finaglers"&gt;mailing
+list&lt;/a&gt; about
+anything that is unclear and we’ll help clarify if you would like to
+know more.&lt;/p&gt;
+
+&lt;p&gt;Kevin Oliver and the Core Systems Libraries team&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <title>⛄ December 2017 Release Notes - Version 17.12.0</title>
     <link rel="alternate" href="https://finagle.github.io/blog/2017/12/12/release-notes/"/>
     <id>https://finagle.github.io/blog/2017/12/12/release-notes/</id>
@@ -380,41 +565,6 @@ transport. &lt;a href="https://github.com/twitter/twitter-server/commit/f8f64a46
 </content>
   </entry>
   <entry>
-    <title>Guava-less</title>
-    <link rel="alternate" href="https://finagle.github.io/blog/2017/12/12/guava-less/"/>
-    <id>https://finagle.github.io/blog/2017/12/12/guava-less/</id>
-    <published>2017-12-11T16:00:00-08:00</published>
-    <updated>2018-01-25T13:52:00-08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;We have been minimizing our dependency on &lt;a href="https://github.com/google/guava"&gt;Guava&lt;/a&gt;, which is big
-and often causes version conflicts for our users. This work will be
-released as part of January&amp;rsquo;s 18.1 release, though there are 2 places
-it remains:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;util-cache-guava&lt;/code&gt; has a &lt;code&gt;CacheBuilder&lt;/code&gt;-based implementation of
-&lt;code&gt;FutureCache&lt;/code&gt;.  We advise replacing this usage with a
-&lt;a href="https://github.com/ben-manes/caffeine"&gt;Caffeine&lt;/a&gt; &lt;code&gt;FutureCache&lt;/code&gt; available in
-&lt;a href="https://github.com/twitter/util/blob/develop/util-cache/src/main/scala/com/twitter/cache/caffeine/CaffeineCache.scala"&gt;util-cache&lt;/a&gt;. The migration is well documented
-in the Caffeine &lt;a href="https://github.com/ben-manes/caffeine/wiki/Guava"&gt;user guide&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Finatra&amp;rsquo;s &lt;code&gt;http&lt;/code&gt; module has a few public APIs that use
-&lt;code&gt;com.google.common.net.MediaType&lt;/code&gt;.  We aren&amp;rsquo;t planning to address this
-in the immediate future, but it&amp;rsquo;s something we&amp;rsquo;d love to tackle given
-more time.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Thanks for following along. Please feel free to ask questions on the
-&lt;a href="https://groups.google.com/forum/#!forum/finaglers"&gt;mailing
-list&lt;/a&gt; about
-anything that is unclear and we’ll help clarify if you would like to
-know more.&lt;/p&gt;
-
-&lt;p&gt;Kevin Oliver and the Core Systems Libraries team&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
     <title>🍠 November 2017 Release Notes - Version 17.11.0</title>
     <link rel="alternate" href="https://finagle.github.io/blog/2017/11/17/release-notes/"/>
     <id>https://finagle.github.io/blog/2017/11/17/release-notes/</id>
@@ -519,127 +669,6 @@ formatting, note: the default &lt;code&gt;LogFormatter&lt;/code&gt; does not use
 &lt;li&gt;&lt;a href="https://github.com/twitter/twitter-server/blob/twitter-server-17.11.0/CHANGES"&gt;TwitterServer 17.11.0&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/twitter/finatra/blob/finatra-17.11.0/CHANGELOG.md"&gt;Finatra 17.11.0&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>🛠️ Introducing Twitter Futures Capture Points</title>
-    <link rel="alternate" href="https://finagle.github.io/blog/2017/11/02/async-stack-traces/"/>
-    <id>https://finagle.github.io/blog/2017/11/02/async-stack-traces/</id>
-    <published>2017-11-01T17:00:00-07:00</published>
-    <updated>2018-01-25T13:52:00-08:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;If you&amp;rsquo;ve ever tried to debug asynchronous code written with Twitter &lt;a href="https://github.com/twitter/util/blob/develop/util-core/src/main/scala/com/twitter/util/Future.scala"&gt;&lt;code&gt;Future&lt;/code&gt;&lt;/a&gt;s, 
-you may have found that the stack trace isn&amp;rsquo;t always helpful. The stack trace
-at a given point in the program includes the active stack frames and thus shows
-the chain of function calls that led up to that point. Since asynchronous
-execution causes different parts of a program to have their stack traces chopped
-up, the stack trace often shows unexpected internal library calls and is missing
-the causality developers are used to from synchronous code. As a result, the
-context leading to the current stack frame is lost.&lt;/p&gt;
-
-&lt;p&gt;IntelliJ 2017.1 included a feature called &lt;a href="https://blog.jetbrains.com/idea/2017/02/intellij-idea-2017-1-eap-extends-debugger-with-async-stacktraces/"&gt;Capture Points&lt;/a&gt;.
-This feature lets us stitch together stack frames so that the order of functions
-in the stack trace respects the order in which they were called.&lt;/p&gt;
-
-&lt;p&gt;Our summer intern, &lt;a href="https://twitter.com/McKardah"&gt;Haggai Kaunda&lt;/a&gt;, wrote capture
-points specific to Twitter &lt;a href="https://github.com/twitter/util/blob/develop/util-core/src/main/scala/com/twitter/util/Future.scala"&gt;&lt;code&gt;Future&lt;/code&gt;&lt;/a&gt;s 
-(thanks, Haggai!). Using these can make debugging asynchronous code written
-with Twitter &lt;code&gt;Future&lt;/code&gt;s simpler by providing more informative stack traces.&lt;/p&gt;
-
-&lt;p&gt;Note that as of November 2017, the capture points are guaranteed to work with
-only Scala 2.11. We are not working on capture points for 2.12 at this time;
-if you would like to help make this feature available for more users, you can
-submit a pull request on &lt;a href="https://github.com/twitter/util"&gt;util&amp;rsquo;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;To start using, you can grab the capture points XML file &lt;a href="https://raw.githubusercontent.com/twitter/util/develop/util-intellij/src/main/resources/util-intellij/TwitterFuturesCapturePoints.xml"&gt;directly from GitHub&lt;/a&gt;,
-and after our next release it will be available as an artifact published to
-Maven Central.&lt;/p&gt;
-
-&lt;h2&gt;Setup&lt;/h2&gt;
-
-&lt;p&gt;The capture points are defined in &lt;a href="http://github.com/twitter/util/util-intellij/src/main/resources/util-intellij/TwitterFuturesCapturePoints.xml"&gt;TwitterFuturesCapturePoints.xml&lt;/a&gt;.
-To import them into IntelliJ,&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Open IntelliJ. In the menu bar, click IntelliJ IDEA &amp;gt; Preferences.&lt;/li&gt;
-&lt;li&gt;Navigate to Build, Execution, Deployment &amp;gt; Debugger &amp;gt; Async Stacktraces.&lt;/li&gt;
-&lt;li&gt;Click the Import icon on the bottom bar. Find the XML file and click OK.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Use&lt;/h2&gt;
-
-&lt;p&gt;Set a breakpoint where you wish to see the stack trace, debug your code, and 
-look at the &amp;ldquo;Frames&amp;rdquo; tab in the Debugger. Any asynchronous calls in the stack
-trace will appear in logical order. If you wish to clean up the stack trace,
-click the funnel icon in the top right, &amp;ldquo;Hide Frames from Libraries&amp;rdquo;.&lt;/p&gt;
-
-&lt;h2&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;We will illustrate how to use the capture points to assist with debugging with a
-&lt;a href="http://github.com/twitter/util/util-intellij/src/test/scala/com/twitter/util/capturepoints/Demo.scala"&gt;small example&lt;/a&gt; 
-written by &lt;a href="https://twitter.com/kevino"&gt;Kevin Oliver&lt;/a&gt; (thanks, Kevin!).&lt;/p&gt;
-
-&lt;p&gt;A brief explanation of this test: the test passes a &lt;a href="https://github.com/twitter/util/blob/develop/util-core/src/main/scala/com/twitter/util/Promise.scala"&gt;&lt;code&gt;Promise[Int]&lt;/code&gt;&lt;/a&gt;
-through three methods and then sets the &lt;code&gt;Promise&lt;/code&gt;’s value in a &lt;code&gt;futurePool&lt;/code&gt;.
-The calls are asynchronous, but the logical flow of the test is as follows:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;test&lt;/code&gt; block calls &lt;code&gt;someBusinessLogic&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;someBusinessLogic&lt;/code&gt; calls &lt;code&gt;moreBusinessLogic&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;moreBusinessLogic&lt;/code&gt; calls &lt;code&gt;lordBusinessLogic&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lordBusinessLogic&lt;/code&gt; waits for the &lt;code&gt;Promise&lt;/code&gt;’s value to be set&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;Promise&lt;/code&gt;’s value is set in the test block (this could happen at any
-time; it is not necessarily step number 5)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lordBusinessLogic&lt;/code&gt; returns&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;test&lt;/code&gt;’s &lt;code&gt;result&lt;/code&gt; variable is &lt;code&gt;4&lt;/code&gt;, and the test passes&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Suppose we wish to inspect the stack trace from inside &lt;code&gt;lordBusinessLogic&lt;/code&gt;. If 
-we set a breakpoint at line 47 and then debug the test in IntelliJ with the
-capture points disabled, we see the following stack trace:&lt;/p&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;apply$mcVI$sp:47, Demo$$anonfun$lordBusinessLogic$1
-apply:1820, Future$$anonfun$onSuccess$1
-apply:205, Promise$Monitored
-run:532, Promise$$anon$7
-run:198, LocalScheduler$Activation
-submit:157, LocalScheduler$Activation
-submit:274, LocalScheduler
-submit:109, Scheduler$
-runq:522, Promise
-updatelfEmpty:880, Promise
-update:859, Promise
-setValue:835, Promise
-apply$mcV$sp:20, Demo$$anonfun$3$$anonfun$apply$1
-apply:15, Try$
-run:140, ExecutorServiceFuturePool$$anon$4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The library calls in the stack trace do not help us understand our code. If we
-enable the capture points and again debug the test, we see the following stack
-trace:&lt;/p&gt;
-&lt;pre class="highlight plaintext"&gt;&lt;code&gt;apply$mcVI$sp:47, Demo$$anonfun$lordBusinessLogic$1
-apply:1820, Future$$anonfun$onSuccess$1
-onSuccess:1819, Future
-lordBusinessLogic:42, Demo
-moreBusinessLogic:38, Demo
-someBusinessLogic:31, Demo
-apply:17, Demo$$anonfun$3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is much cleaner and it includes only calls to functions we wrote. It lets
-us clearly see that the test block called &lt;code&gt;someBusinessLogic&lt;/code&gt;, that
-&lt;code&gt;someBusinessLogic&lt;/code&gt; called &lt;code&gt;moreBusinessLogic&lt;/code&gt;, and that &lt;code&gt;moreBusinessLogic&lt;/code&gt;
-called &lt;code&gt;lordBusinessLogic&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2&gt;That&amp;rsquo;s all!&lt;/h2&gt;
-
-&lt;p&gt;Please let us know if you have any questions via &lt;a href="http://twitter.com/finagle"&gt;@finagle&lt;/a&gt;,
-the &lt;a href="https://groups.google.com/forum/#!forum/finaglers"&gt;Finaglers mailing list&lt;/a&gt;, or
-&lt;a href="https://gitter.im/twitter/finagle"&gt;chat&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Happy debugging!&lt;/p&gt;
 </content>
   </entry>
 </feed>
